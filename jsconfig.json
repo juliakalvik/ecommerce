@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/* creating an e commerce store with next.js in /Documents/frontend2024/ecommerce": ["./*"]
+    }
+  }
+}
