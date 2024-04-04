@@ -1,3 +1,7 @@
+
+
+
+
 async function fetchAllProducts() {
     // const res = await fetch('https://v2.api.noroff.dev/online-shop');
     //return res.json()
@@ -608,16 +612,20 @@ export default async function ProductList() {
             "totalCount": 25
         }
     }
+   
 
 
     return (
         <>
             {apiResult.data.map((product) => (
-                <div key={product.id} className="p-5">
-                    <h3>{product.title}</h3>
-                    <div>{product.image.url}</div>
-                    <p>{product.description}</p>
-                    <h2>{product.price}</h2>
+                <div key={product.id} className="flex flex-col shadow bg-white hover:shadow-lg cursor-pointer">
+                    <img src={product.image.url} alt={product.image.alt} className="w-full h-[400px] object-cover"></img>
+                    <div className="flex flex-col gap-2 p-4">
+                        <div className="flex items-center justify-between">
+                            <h3>{product.title}</h3>
+                            <h2>{product.price} kr</h2>
+                        </div>
+                    </div>
                 </div>
             ))}
         </>
