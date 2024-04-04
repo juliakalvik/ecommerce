@@ -21,8 +21,6 @@ export default function Home() {
     fetchData();
   }, []); */
 
-
-
     return (
       <main className='p-4 flex flex-col'>
         <h1>Products</h1>
