@@ -1,4 +1,5 @@
 
+import { useRouter } from "next/navigation"
 
 
 
@@ -612,13 +613,17 @@ export default async function ProductList() {
             "totalCount": 25
         }
     }
-   
+    const router = useRouter()
+
+    function onProductClick() {
+        router.push('/products/[productId]?{product.id}')
+    }
 
 
     return (
         <>
             {apiResult.data.map((product) => (
-                <div key={product.id} className="flex flex-col shadow bg-white hover:shadow-lg cursor-pointer">
+                <div key={product.id} onClick={onProductClick} className="flex flex-col shadow bg-white hover:shadow-lg cursor-pointer">
                     <img src={product.image.url} alt={product.image.alt} className="w-full h-[400px] object-cover"></img>
                     <div className="flex flex-col gap-2 p-4">
                         <div className="flex items-center justify-between">
