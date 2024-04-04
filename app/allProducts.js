@@ -1,5 +1,6 @@
 
 import { useRouter } from "next/navigation"
+import useCart from "./(store)/store"
 
 
 
@@ -613,9 +614,18 @@ export default async function ProductList() {
             "totalCount": 25
         }
     }
+
+
+const setProduct = useCart(state => state.setProduct)
+
     const router = useRouter()
 
     function onProductClick() {
+        const newProduct = {
+           
+
+        }
+        setProduct({ newProduct })
         router.push('/products/[productId]?{product.id}')
     }
 
