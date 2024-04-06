@@ -20,7 +20,7 @@ export default function ProductList() {
   }, []);
 
   function onProductClick(newProduct) {
-    router.push('/products/'+newProduct);
+    router.push('/products?id='+newProduct);
 }
 
 
