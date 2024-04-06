@@ -26,14 +26,14 @@ export default function RootLayout({ children }) {
          {children}
         </div>
         <footer className="flex items-center mt-auto flex-wrap justify-center border-t border-solid border-slate-300 p-4 md:p-8 gap-4">
-          <Link href={'https://www.instagram.com/juuliamor'}>
+          <Link href={'https://www.instagram.com/juuliamor'} target="_blank">
           <i className="fa-brands fa-instagram text-slate-700 hover:text-slate-500 cursor-pointer text-xl"></i>
           </Link>
-          <Link href={'https://www.instagram.com/juuliamor'}>
-          <i className="fa-brands fa-instagram text-slate-700 hover:text-slate-500 cursor-pointer text-xl"></i>
+          <Link href={'https://www.instagram.com/juuliamor'} target="_blank">
+          <i className="fa-brands fa-facebook text-slate-700 hover:text-slate-500 cursor-pointer text-xl"></i>
           </Link>
-          <Link href={'https://www.instagram.com/juuliamor'}>
-          <i className="fa-brands fa-instagram text-slate-700 hover:text-slate-500 cursor-pointer text-xl"></i>
+          <Link href={'https://www.instagram.com/juuliamor'} target="_blank">
+          <i className="fa-brands fa-tiktok text-slate-700 hover:text-slate-500 cursor-pointer text-xl"></i>
           </Link>
         </footer>
       </body>
