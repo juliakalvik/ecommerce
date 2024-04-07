@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 const Product = () => {
   const [post, setPost] = useState(null);
@@ -53,16 +53,37 @@ const Product = () => {
                   <h1>{post.title}</h1>
                   <h2>{post.price} kr</h2>
                 </div>
-                <p className='flex-1'>{post.description}</p>
-                <button className="bg-slate-700 text-white hover:bg-slate-500 cursor-pointer ml-auto px-4 py-2 rounded">Add to cart</button>
+                <p className="flex-1">{post.description}</p>
+                <button className="bg-slate-700 text-white hover:bg-slate-500 cursor-pointer ml-auto px-4 py-2 rounded">
+                  Add to cart
+                </button>
               </div>
             </div>
+            <p>Rating: {post.rating}</p>
+            <p>Reviews:</p>
+            <ul>
+              {post.reviews.map((review) => (
+                <li key={review.id}>
+                  <p>Username: {review.username}</p>
+                  <p>Rating: {review.rating}</p>
+                  <p>Description: {review.description}</p>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {modalOpen && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 rounded" onClick={closeModal}>
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 rounded"
+              onClick={closeModal}
+            >
               <div className="max-w-[90%] max-h-[90%] overflow-auto bg-white p-4 relative rounded">
-                <button className="absolute top-0 right-0 m-2 px-3 py-1 bg-white border border-black text-black rounded hover:bg-gray-300" onClick={closeModal}>Close</button>
+                <button
+                  className="absolute top-0 right-0 m-2 px-3 py-1 bg-white border border-black text-black rounded hover:bg-gray-300"
+                  onClick={closeModal}
+                >
+                  Close
+                </button>
                 <img
                   src={post.image.url}
                   alt={post.image.alt}
