@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import useCart from "../(store)/store";
 
 const Product = () => {
   const [post, setPost] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const searchParams = useSearchParams();
-
+  const addItemToCart = useCart(state => state.addItemToCart)
   const getPostById = async (id) => {
     try {
       const response = await fetch(
@@ -34,6 +35,16 @@ const Product = () => {
     setModalOpen(false);
   };
 
+  function handleAddToCart() {
+    const newItem = {
+        quantity: 1,
+        
+    }
+    addItemToCart({newItem})
+  }
+
+
+
   return (
     <>
       {post && (
@@ -54,7 +65,7 @@ const Product = () => {
                   <h2>{post.price} kr</h2>
                 </div>
                 <p className="flex-1">{post.description}</p>
-                <button className="bg-slate-700 text-white hover:bg-slate-500 cursor-pointer ml-auto px-4 py-2 rounded">
+                <button onClick={handleAddToCart} className="bg-slate-700 text-white hover:bg-slate-500 cursor-pointer ml-auto px-4 py-2 rounded">
                   Add to cart
                 </button>
               </div>
