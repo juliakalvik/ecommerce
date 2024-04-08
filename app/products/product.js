@@ -6,6 +6,8 @@ const Product = () => {
   const [post, setPost] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const searchParams = useSearchParams();
+  const cartItems = useCart(state => state.cart);
+  const setCartItems = useCart(state => state.setCart);
   const addItemToCart = useCart(state => state.addItemToCart)
   const getPostById = async (id) => {
     try {
@@ -34,6 +36,8 @@ const Product = () => {
   const closeModal = () => {
     setModalOpen(false);
   };
+
+
 
   function handleAddToCart() {
     const newItem = {
