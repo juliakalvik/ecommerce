@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import ReactDom from "react-dom"; // Import ReactDom
 import useCart from "../(store)/store";
 
 const CheckoutPage = () => {
@@ -11,8 +10,10 @@ const CheckoutPage = () => {
     : 0;
 
   const handlePlaceOrder = (event) => {
-    // Handle placing order logic here (e.g., submitting form data to server)
-    // After successful order placement, redirect to checkout success page
+    alert("Thank you for your purchase!");
+    emptyCart(); 
+    
+   
   };
 
   return (
@@ -32,7 +33,7 @@ const CheckoutPage = () => {
         <p>Total Price: {totalPrice} kr</p>
       </div>
       <form onSubmit={handlePlaceOrder}>
-        {/* Add input fields for card information */}
+   
         <input type="text" placeholder="Card Number" />
         <input type="text" placeholder="Expiration Date" />
         <input type="text" placeholder="CVV" />
