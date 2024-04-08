@@ -38,7 +38,9 @@ const Product = () => {
   function handleAddToCart() {
     const newItem = {
         quantity: 1,
-        
+        key: post.id,
+        title: post.title,
+        price: post.price
     }
     addItemToCart({newItem})
   }
