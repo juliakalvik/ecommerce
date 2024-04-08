@@ -3,14 +3,32 @@
 import React from "react";
 import ReactDom from "react-dom";
 import useCart from "./(store)/store";
+import CheckoutPage from "./checkout/page";
 
 export function Modal() {
   const closeModal = useCart((state) => state.setOpenModal);
   const cartItems = useCart((state) => state.cart);
+  const emptyCart = useCart((state) => state.emptyCart); 
 
   const totalPrice = cartItems.reduce((total, currentItem) => {
     return total + currentItem.price;
   }, 0);
+
+  const handleClearCart = () => {
+    emptyCart(); 
+  };
+
+  const handleCheckout = () => {
+    const portalContainer = document.getElementById('portal');
+    if (portalContainer) {
+      ReactDom.createPortal(<CheckoutPage />, portalContainer);
+    } else {
+      console.error('Portal container not found');
+    }
+    window.location.href = '../checkout/';
+    closeModal(); 
+  };
+
 
   return ReactDom.createPortal(
     <div className="fixed top-0 left-0 w-screen z-50">
@@ -44,7 +62,15 @@ export function Modal() {
             </>
           )}
         </div>
-        <div className="border border-solid border-slate-700 text-xl m-4 p-6 uppercase grid place-itmes-center hover:opacity-60 cursor-pointer justify-center">Checkout</div>
+        <div
+          className="border border-solid border-slate-700 text-xl m-4 p-6 uppercase grid place-itmes-center hover:opacity-60 cursor-pointer justify-center"
+          onClick={handleClearCart}
+        >
+          Clear Cart
+        </div>
+        <div className="border border-solid border-slate-700 text-xl m-4 p-6 uppercase grid place-itmes-center hover:opacity-60 cursor-pointer justify-center" onClick={handleCheckout}>
+          Checkout
+        </div>
       </div>
     </div>,
     document.getElementById("portal")
