@@ -40,4 +40,7 @@ The website has:
 
 My overall experience with this project is that it was nice using Zustand for handling the cart. Working in Next.js was also nice in regards to the routing, which was easy to set up.
 
+Here is the link to the deployed website:
+https://ecomjulezshoez.netlify.app/ 
+
 
