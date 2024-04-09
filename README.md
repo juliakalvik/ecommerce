@@ -20,17 +20,24 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Report
 
-To learn more about Next.js, take a look at the following resources:
+This project is my first take on an e-commerce website using next.js and zustand.
+I found it interesting and challanging, especially when it came to deploying my website to Netlify. That came with a lot of errors, so I learned a lot from doing that.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The website has:
+- a homepage displaying a list of products
+- a product sepcific page that the user gets redirected to when clicking on one of the products
+  - on the product specific page, you can see ratings and read the reviews linked to each specific item 
+  - on the product specific page, you can choose to add the product to your shopping cart. I used localstorage to make sure the products added to the cart, stays in the cart when the page reloads
+- a shopping cart modal that is available from anywhere on the website, which contains the added products and the quantity + price, and the total price
+  -  in the shopping cart modal, you can click on a button that clears the cart
+  -  from the shopping cart, you can proceed to the checkout page
+- a checkout page that for now is not working as i wish, but I'm working on that
+  - when you click on "place order" on the checkout page, you get an alert message confirming your order. I am working on imporving this
+- a contact page with a contact form, requiring correct info before submission
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+My overall experience with this project is that it was nice using Zustand for handling the cart. Working in Next.js was also nice in regards to the routing, which was easy to set up.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
